@@ -3,13 +3,13 @@
 import math
 import rospy
 
-from mypkg.msg import TestArray
+from test_publishers.msg import TestArray
 
 def main():
     rospy.init_node("test_pub")
 
     rate = rospy.Rate(5)
-    pub = rospy.Publisher("array", TestArray)
+    pub = rospy.Publisher("array", TestArray, queue_size=5)
 
     values = [ 0 ] * 4
 
